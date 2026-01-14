@@ -1,5 +1,41 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { assets } from "../assets/assets";
+
+/* ---------------- ANIMATION VARIANTS ---------------- */
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const cardAnim = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  },
+};
+
+/* ---------------- COMPONENT ---------------- */
 
 const Working = () => {
   const steps = [
@@ -22,7 +58,7 @@ const Working = () => {
     },
     {
       id: 3,
-      title: "Meet & Exchange",
+      title: "Buy, Sell, or Borrow — Safely on Campus",
       description:
         "Connect with other students and arrange safe meetups on campus to complete your transaction.",
       image:
@@ -33,77 +69,81 @@ const Working = () => {
 
   return (
     <section className="w-full bg-[#f1efeecd] pt-8 pb-24 font-['Outfit']">
-      {/* z-index fix stays */}
       <div className="relative z-10 max-w-6xl mx-auto px-12">
-        
-        {/* Heading */}
-        <div className="text-center mb-16">
+
+        {/* ---------------- HEADING ---------------- */}
+        <motion.div
+          className="text-center mb-16"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-  <span className="text-[#0D1B2A]">How </span>
-  <span className="text-[#0D1B2A]">CAMPUS </span>
-  <span className="text-[#f57404]">Xchange </span>
-  <span className="text-[#0D1B2A]">Works</span>
-</h2>
+            <span className="text-[#0D1B2A]">How </span>
+            <span className="text-[#0D1B2A]">CAMPUS </span>
+            <span className="text-[#f57404]">Xchange </span>
+            <span className="text-[#0D1B2A]">Works</span>
+          </h2>
           <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
             Getting started with Campus Xchange is simple and secure
           </p>
-        </div>
+        </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 justify-items-center">
+        {/* ---------------- CARDS ---------------- */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-16 justify-items-center"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {steps.map((step) => (
-  <div
-    key={step.id}
-    className="flex flex-col items-center group transition-all duration-300"
-  >
-    {/* Image Card */}
-    <div
-      className={`${step.cardBg} w-[260px] h-[260px] rounded-[2.5rem] 
-      flex items-center justify-center mb-8
-      transition-all duration-500 ease-out
-      group-hover:-translate-y-3 
-      group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)]`}
-    >
-      <img
-        src={step.image}
-        alt={step.title}
-        className="w-[85%] h-[85%] object-contain mix-blend-multiply
-        transition-transform duration-500
-        group-hover:scale-105"
-      />
-    </div>
+            <motion.div
+              key={step.id}
+              variants={cardAnim}
+              whileHover={{ y: -10 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="flex flex-col items-center group"
+            >
+              {/* Image Card */}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 150, damping: 15 }}
+                className={`${step.cardBg} w-[260px] h-[260px] rounded-[2.5rem] 
+                flex items-center justify-center mb-8
+                shadow-sm group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.15)]`}
+              >
+                <motion.img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-[85%] h-[85%] object-contain mix-blend-multiply"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                />
+              </motion.div>
 
-    {/* Step Number */}
-    <div
-      className="bg-[#6366F1] text-white w-11 h-11 rounded-full 
-      flex items-center justify-center text-lg font-bold mb-4
-      transition-all duration-300
-      group-hover:scale-110 group-hover:shadow-lg"
-    >
-      {step.id}
-    </div>
+              {/* Step Number */}
+              <motion.div
+                whileHover={{ scale: 1.15 }}
+                className="bg-[#6366F1] text-white w-11 h-11 rounded-full 
+                flex items-center justify-center text-lg font-bold mb-4 shadow-md"
+              >
+                {step.id}
+              </motion.div>
 
-    {/* Title */}
-    <h3
-      className="text-xl font-bold text-[#1A1A1A] mb-2 text-center
-      transition-colors duration-300
-      group-hover:text-[#6366F1]"
-    >
-      {step.title}
-    </h3>
+              {/* Title */}
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-2 text-center group-hover:text-[#6366F1] transition-colors duration-300">
+                {step.title}
+              </h3>
 
-    {/* Description */}
-    <p
-      className="text-[#666] text-center text-sm leading-relaxed max-w-xs
-      transition-colors duration-300
-      group-hover:text-[#333]"
-    >
-      {step.description}
-    </p>
-  </div>
-))}
-
-        </div>
+              {/* Description */}
+              <p className="text-[#666] text-center text-sm leading-relaxed max-w-xs group-hover:text-[#333] transition-colors duration-300">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
 
       </div>
     </section>

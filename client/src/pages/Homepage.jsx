@@ -19,6 +19,7 @@ function Homepage() {
       <Categories/>
       <Founder/>
       <Footer/>
+      
     </div>
   )
 }

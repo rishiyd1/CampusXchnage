@@ -67,7 +67,7 @@ function Navbar() {
 
           {/* CTA BUTTON - Glow effect */}
           <Link
-            to="/login"
+            to="/auth"
             className="
               relative overflow-hidden group
               bg-gray-900 text-white

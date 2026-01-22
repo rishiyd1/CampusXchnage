@@ -42,7 +42,7 @@ const stagger = {
 
 const Founder = () => {
   return (
-    <section className="w-full bg-[#f1efeecd] py-16">
+    <section id="about-us" className="w-full bg-[#f1efeecd] py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
 
         <motion.div

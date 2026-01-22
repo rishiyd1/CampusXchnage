@@ -68,7 +68,7 @@ const Working = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f1efeecd] pt-8 pb-24 font-['Outfit']">
+    <section id="how-it-works" className="w-full bg-[#f1efeecd] pt-8 pb-24 font-['Outfit']">
       <div className="relative z-10 max-w-6xl mx-auto px-12">
 
         {/* ---------------- HEADING ---------------- */}

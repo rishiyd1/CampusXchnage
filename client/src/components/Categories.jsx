@@ -72,7 +72,7 @@ const Categories = () => {
   ];
 
   return (
-    <section className="relative w-full py-20 bg-[#f1efeecd]">
+    <section id="categories" className="relative w-full py-20 bg-[#f1efeecd]">
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24">
 
         {/* Heading */}

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Linkedin, Instagram, X } from "lucide-react";
 
 const Footer = () => {
@@ -22,41 +21,41 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* NAVIGATION */}
+          {/* NAVIGATION (SAME PATTERN AS NAVBAR) */}
           <div>
             <h4 className="text-gray-900 font-bold mb-4">Navigation</h4>
             <ul className="space-y-3 text-gray-600 text-sm">
               <li>
-                <Link
-                  to="/"
+                <a
+                  href="#"
                   className="hover:text-orange-500 transition-colors"
                 >
                   Home
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/how-it-works"
+                <a
+                  href="#how-it-works"
                   className="hover:text-orange-500 transition-colors"
                 >
                   How it Works
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/categories"
+                <a
+                  href="#categories"
                   className="hover:text-orange-500 transition-colors"
                 >
                   Categories
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/about"
+                <a
+                  href="#about-us"
                   className="hover:text-orange-500 transition-colors"
                 >
                   About Us
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -66,7 +65,6 @@ const Footer = () => {
             <h4 className="text-gray-900 font-bold mb-4">Connect</h4>
 
             <div className="flex items-center gap-5 text-gray-500">
-              {/* LinkedIn */}
               <a
                 href="https://linkedin.com/in/YOUR_LINKEDIN"
                 target="_blank"
@@ -77,7 +75,6 @@ const Footer = () => {
                 <Linkedin size={22} />
               </a>
 
-              {/* X / Twitter */}
               <a
                 href="https://twitter.com/YOUR_TWITTER"
                 target="_blank"
@@ -88,7 +85,6 @@ const Footer = () => {
                 <X size={22} />
               </a>
 
-              {/* Instagram */}
               <a
                 href="https://instagram.com/YOUR_INSTAGRAM"
                 target="_blank"
